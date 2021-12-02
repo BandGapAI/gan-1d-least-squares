@@ -6,4 +6,7 @@ __Convergence and Optimality Analysis of Low-Dimensional Generative Adversarial 
 To run the code, open the `.ipynb` file in Jupyter notebook environment. The requirements
 are installed at in the first executional cell. You need Python 3.x to run the code.
 
-The published code is already executed in order to show the results described in the paper.
+The resulting graphs for the executed code are shown below.
+
+![case a plot](content/case_a.png)
+![case b plot](content/case_b.png)
