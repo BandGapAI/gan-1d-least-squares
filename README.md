@@ -16,18 +16,18 @@ requirements are installed at in the first executional cell. You need Python
 The resulting graphs for the executed code are shown below. Extended comments
 on them can be found in the article.
 
-![case a single](content/case_a_surface_single_run.png)
-
 Case A: Single SDG run.
 
-![case a plot](content/case_a.png)
+![case a single](content/case_a_surface_single_run.png)
 
 Case A: comparison between analytical and MC results.
 
-![case b single](content/case_b_surface_single_run.png)
+![case a plot](content/case_a.png)
 
 Case B: Single SDG run.
 
-![case b plot](content/case_b.png)
+![case b single](content/case_b_surface_single_run.png)
 
 Case B: comparison between analytical and MC results.
+
+![case b plot](content/case_b.png)
