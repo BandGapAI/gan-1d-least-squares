@@ -2,7 +2,7 @@
 
 This is a repository that contains numerical simulations for the paper
 __Convergence and Optimality Analysis of Low-Dimensional Generative Adversarial
-Networks using Error Function Integrals__.
+Networks using Error Function Integrals__ (Graham W. Pulford, Kirill Kondrashov).
 
 The code is related to stochastic gradient descent (SGD) method, the analytical
 part is described in the paper and not present in the code. We provide a comparison
