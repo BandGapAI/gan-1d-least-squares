@@ -1,19 +1,19 @@
 # Convergence and Optimality Analysis of Low-Dimensional Generative Adversarial Networks using Error Function Integrals
 
-This is a repository that contains the numerical simulations for the paper
+This is a repository that contains numerical simulations for the paper
 __Convergence and Optimality Analysis of Low-Dimensional Generative Adversarial
 Networks using Error Function Integrals__.
 
 The code is related to stochastic gradient descent (SGD) method, the analytical
-part is described in paper and not present in the code. We provide a comparison
-of the computation results.
+part is described in the paper and not present in the code. We provide a comparison
+of both analytical and MC-based computations for two special cases.
 
 To run the code, open the `.ipynb` file in Jupyter notebook environment. The
-requirements are installed at in the first executional cell. You need Python
+requirements are installed at the first executional cell. You need Python
 3.x to run the code.
 
 ## Visualizations 
-The resulting graphs for the executed code are shown below. Extended comments
+The graphs for the executed code are shown below. Extended comments
 on them can be found in the article.
 
 Case A: Single SDG run.
