@@ -12,8 +12,16 @@ The particular use case, called Rayleigh/Square/Exponential/Erf or R/S/E/E, is b
 Gradients for the analytical method are based on known error function integrals, and are computed via a key integral that must be evaluated numerically but that is accurate to around 3 decimal places using 1-D Monte Carlo integration with 5E+06 samples. The analytical method is described in the paper and is not present in the current repository code - the stored results for 50 realisations (of MC integration) are loaded from a file. The MC integration is the only source of randomness in the analytical method, which is otherwise deterministic. 
 
 We provide comparisons of both analytical and MC-based computations for two special cases whose initial configuration is:
-Case A: a=2.2, b=-3, g=1.5, h=-2, c=0.5; 
-Case B: a=1.21, b=-1, g=0.35, h=-4, c=4.04.
+
+Case A: 
+```
+a=2.2, b=-3, g=1.5, h=-2, c=0.5;
+```
+
+Case B:
+```
+a=1.21, b=-1, g=0.35, h=-4, c=4.04.
+```
 
 In both cases, the parameters a, g and c are fixed and the optimisation is carried out over the b (discriminator) and h (generator) parameters, with ascent on b and descent on h. The analytical gradient optimisation uses a step size of 0.4.
 
