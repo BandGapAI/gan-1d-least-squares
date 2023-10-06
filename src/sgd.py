@@ -1,16 +1,14 @@
 from gan import Jgh
-from math_utils import Phi_minus, Phi_plus
 
 import numpy as np
-import math
 
 
 def J_diff_g_numerical(x, z, a, b, c, g, h, delta=1e-6):
-    return (Jgh(x, z, a, b, c, g + delta, h) - Jgh(x, z, a, b, g - delta, h))/(2*delta)
+    return (Jgh(x, z, a, b, c, g + delta, h) - Jgh(x, z, a, b, c, g - delta, h))/(2*delta)
 
 
 def J_diff_h_numerical(x, z, a, b, c, g, h, delta=1e-6):
-    return (Jgh(x, z, a, b, g, h + delta) - Jgh(x, z, a, b, g, h - delta))/(2*delta)
+    return (Jgh(x, z, a, b, c, g, h + delta) - Jgh(x, z, a, b, c, g, h - delta))/(2*delta)
 
 
 def _get_parameters(config, g2, h2):
