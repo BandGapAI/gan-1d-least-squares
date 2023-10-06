@@ -24,7 +24,7 @@ def show_paths(g_paths, h_paths):
                      std_h, mean_h + 3*std_h, alpha=0.7)
     plt.legend()
     plt.show()
-    print('solution b = %1.4f +/- %1.4f, h = %1.4f +/- %1.4f' %
+    print('solution g = %1.4f +/- %1.4f, h = %1.4f +/- %1.4f' %
           (mean_g[-1], 3*std_g[-1], mean_h[-1], 3*std_h[-1]))
 
 
