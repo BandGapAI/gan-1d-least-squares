@@ -47,7 +47,7 @@ def load_analytical(fname, param):
 
 def _set_subplot(title):
     plt.title(title)
-    plt.xlabel('B')
+    plt.xlabel('G')
     plt.ylabel('H')
 
 
