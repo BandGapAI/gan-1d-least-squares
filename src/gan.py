@@ -20,6 +20,6 @@ def sample_Jgh(config, n_samples=1000):
     x = np.random.exponential(1/c, n_samples)
     z = np.random.rayleigh(1/np.sqrt(2), n_samples)
     gg, hg = np.meshgrid(g, h)
-    jgh = np.array([[Jgh(x, z, a, b, g_, h_) for g_ in g] for h_ in h])
+    jgh = np.array([[Jgh(x, z, a, b, c, g_, h_) for g_ in g] for h_ in h])
 
     return jgh, gg, hg, x, z
