@@ -52,34 +52,37 @@ def _set_subplot(title):
 
 
 def show_comparative(g_paths, h_paths, thetas):
+    # FIXME:
     """
     Show comparison between analytical results and SGD
     """
-    plt.subplots(4, 2, figsize=(15, 15))
+    plt.subplots(1, 2, figsize=(15, 7))
 
-    plt.subplot(2, 2, 1)
+    # plt.subplot(2, 2, 1)
+    plt.subplot(1, 2, 1)
     for i in range(len(g_paths)):
         plt.plot(g_paths[i], h_paths[i], color='tab:blue')
     _set_subplot('SGD Trajectories')
 
-    ax_sgd_endpoints = plt.subplot(2, 2, 2)
+    # ax_sgd_endpoints = plt.subplot(2, 2, 2)
+    ax_sgd_endpoints = plt.subplot(1, 2, 2)
     for i in range(len(g_paths)):
         plt.scatter(g_paths[i][-1], h_paths[i][-1], color='tab:blue')
     _set_subplot('SGD End Points')
 
-    if thetas is None:
-        return
+    # if thetas is None:
+    #     return
 
-    plt.subplot(2, 2, 3)
-    for i in range(thetas.shape[0]):
-        plt.plot(thetas[i][1], thetas[i][3], color='tab:orange')
-    _set_subplot('Analytical Trajectories')
+    # plt.subplot(2, 2, 3)
+    # for i in range(thetas.shape[0]):
+    #     plt.plot(thetas[i][1], thetas[i][3], color='tab:orange')
+    # _set_subplot('Analytical Trajectories')
 
-    ax_analytical_endpoints = plt.subplot(2, 2, 4)
-    for i in range(thetas.shape[0]):
-        plt.scatter(thetas[i][1][-1], thetas[i][3][-1], color='tab:orange')
-    _set_subplot('Analytical End Points')
-    ax_analytical_endpoints.set_ylim(ax_sgd_endpoints.get_ylim())
-    ax_analytical_endpoints.set_xlim(ax_sgd_endpoints.get_xlim())
+    # ax_analytical_endpoints = plt.subplot(2, 2, 4)
+    # for i in range(thetas.shape[0]):
+    #     plt.scatter(thetas[i][1][-1], thetas[i][3][-1], color='tab:orange')
+    # _set_subplot('Analytical End Points')
+    # ax_analytical_endpoints.set_ylim(ax_sgd_endpoints.get_ylim())
+    # ax_analytical_endpoints.set_xlim(ax_sgd_endpoints.get_xlim())
 
     plt.show()
