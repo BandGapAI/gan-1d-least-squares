@@ -15,11 +15,9 @@ def Jgh(x, z, a, b, c, g, h):
             np.square(1 - Discriminator(Generator(z, g, h), a, b, c, g, h)))
 
 
-def sample_Jgh(config, n_samples=1000):
+def sample_xz(config, n_samples=1000):
     a, b, c, g, h = [v[1] for v in config.items()]
     x = np.random.exponential(1/c, n_samples)
     z = np.random.rayleigh(1/np.sqrt(2), n_samples)
-    gg, hg = np.meshgrid(g, h)
-    jgh = np.array([[Jgh(x, z, a, b, c, g_, h_) for g_ in g] for h_ in h])
 
-    return jgh, gg, hg, x, z
+    return x, z
