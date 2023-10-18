@@ -24,7 +24,7 @@ def calc_J_diff(config, x, z, method=J_diff_g_numerical, g2=None, h2=None):
 
 
 def SGD_step_gh(x, z, a, b, c, g0, h0, eps_g, eps_h):
-    g = g0 + eps_g*J_diff_g_numerical(x, z, a, b, c, g0, h0)
+    g = g0 - eps_g*J_diff_g_numerical(x, z, a, b, c, g0, h0)
     h = h0 - eps_h*J_diff_h_numerical(x, z, a, b, c, g0, h0)
     return g, h
 
