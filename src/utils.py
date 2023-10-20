@@ -42,7 +42,7 @@ def load_analytical(fname, param):
     """
     if not os.path.isfile(fname):
         return None
-    return loadmat(fname)[param].transpose()
+    return loadmat(fname)[param]
 
 
 def _set_subplot(title):
