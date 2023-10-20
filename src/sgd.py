@@ -31,6 +31,6 @@ def SGD_step_gh(x, z, a, b, c, g0, h0, eps_g, eps_h):
 
 def SGD_gh(x, z, a, b, c, g0, h0, eps_g, eps_h, stop):
     g, h = g0, h0
-    for _ in range(stop):
+    for _ in range(stop - 1):
         g, h = SGD_step_gh(x, z, a, b, c, g, h, eps_g, eps_h)
         yield g, h
