@@ -2,7 +2,7 @@ import numpy as np
 
 
 def Discriminator(x, a, b, c, g, h):
-    return np.vectorize(lambda x: 1.0/(1.0 + 1.0/g/c * np.exp(-(c - 1.0/g)*x - h/g)))(x)
+    return np.vectorize(lambda x: 1.0/(1.0 + a*np.exp(-b*x)))(x)
 
 
 def Generator(z, g, h):
@@ -16,7 +16,7 @@ def Jgh(x, z, a, b, c, g, h):
 
 
 def sample_xz(config, n_samples=1000):
-    a, b, c, g, h = [v[1] for v in config.items()]
+    c = config['c']
     x = np.random.exponential(1/c, n_samples)
     z = np.random.rayleigh(1/np.sqrt(2), n_samples)
 

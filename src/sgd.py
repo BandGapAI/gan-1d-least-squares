@@ -3,6 +3,18 @@ from gan import Jgh
 import numpy as np
 
 
+def J_diff_a_numerical(x, z, a, b, c, g, h, delta=1e-6):
+    return (Jgh(x, z, a + delta, b, c, g, h) - Jgh(x, z, a - delta, b, c, g, h))/(2*delta)
+
+
+def J_diff_b_numerical(x, z, a, b, c, g, h, delta=1e-6):
+    return (Jgh(x, z, a, b + delta, c, g, h) - Jgh(x, z, a, b - delta, c, g, h))/(2*delta)
+
+
+def J_diff_h_numerical(x, z, a, b, c, g, h, delta=1e-6):
+    return (Jgh(x, z, a, b, c, g, h + delta) - Jgh(x, z, a, b, c, g, h - delta))/(2*delta)
+
+
 def J_diff_g_numerical(x, z, a, b, c, g, h, delta=1e-6):
     return (Jgh(x, z, a, b, c, g + delta, h) - Jgh(x, z, a, b, c, g - delta, h))/(2*delta)
 
@@ -23,14 +35,16 @@ def calc_J_diff(config, x, z, method=J_diff_g_numerical, g2=None, h2=None):
     return np.array([[method(x, z, a, b, c, g_, h_) for g_ in g] for h_ in h])
 
 
-def SGD_step_gh(x, z, a, b, c, g0, h0, eps_g, eps_h):
-    g = g0 - eps_g*J_diff_g_numerical(x, z, a, b, c, g0, h0)
-    h = h0 - eps_h*J_diff_h_numerical(x, z, a, b, c, g0, h0)
-    return g, h
+def SGD_step(x, z, a0, b0, c, g0, h0, eps=0.4):
+    a = a0 + eps*J_diff_a_numerical(x, z, a0, b0, c, g0, h0)
+    b = b0 + eps*J_diff_b_numerical(x, z, a0, b0, c, g0, h0)
+    g = g0 - eps*J_diff_g_numerical(x, z, a0, b0, c, g0, h0)
+    h = h0 - eps*J_diff_h_numerical(x, z, a0, b0, c, g0, h0)
+    return a, b, g, h
 
 
-def SGD_gh(x, z, a, b, c, g0, h0, eps_g, eps_h, stop):
-    g, h = g0, h0
+def SGD(x, z, a0, b0, c, g0, h0, stop):
+    a, b, g, h = a0, b0, g0, h0
     for _ in range(stop - 1):
-        g, h = SGD_step_gh(x, z, a, b, c, g, h, eps_g, eps_h)
-        yield g, h
+        a, b, g, h = SGD_step(x, z, a, b, c, g, h)
+        yield a, b, g, h
