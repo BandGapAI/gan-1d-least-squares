@@ -9,7 +9,7 @@ def Generator(z, g, h):
     return np.vectorize(lambda z: g*(z**2) + h)(z)
 
 
-def Jgh(x, z, a, b, c, g, h):
+def cost(x, z, a, b, c, g, h):
     return np.average(np.square(Discriminator(x, a, b, c, g, h))) + \
         np.average(
             np.square(1 - Discriminator(Generator(z, g, h), a, b, c, g, h)))
