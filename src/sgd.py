@@ -35,7 +35,7 @@ def calc_J_diff(config, x, z, method=J_diff_g_numerical, g2=None, h2=None):
     return np.array([[method(x, z, a, b, c, g_, h_) for g_ in g] for h_ in h])
 
 
-def SGD_step(x, z, a0, b0, c, g0, h0, eps=0.4):
+def SGD_step(x, z, a0, b0, c, g0, h0, eps=0.1):
     a = a0 + eps*J_diff_a_numerical(x, z, a0, b0, c, g0, h0)
     b = b0 + eps*J_diff_b_numerical(x, z, a0, b0, c, g0, h0)
     g = g0 - eps*J_diff_g_numerical(x, z, a0, b0, c, g0, h0)
